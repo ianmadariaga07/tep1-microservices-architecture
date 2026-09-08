@@ -1,4 +1,5 @@
-const express = require('express');
+import express from "express";
+
 const app = express();
 const PORT = 3000; // Puerto en el que escuchará el servidor
 
@@ -73,9 +74,24 @@ app.get("/api/v1/pizza/function/:id", (req, res)=>{
 //consumo de otro servicio, fetch
 app.get("/api/v1/placeholder", async (req, res)=>{
     const response = await fetch("https://jsonplaceholder.typicode.com/post/1")
+    console.log(response)
     const json = await response.json()
 
     return res.status(200).json(json)
+})
+
+//03 SEPTIEMBRE
+//consumo de otro servicio, fetch
+app.post("/api/v1/pizzas", async (req, res)=>{
+    const pizza = req.body
+    console.log(pizza)
+    //guardarPizza(body)
+    const respuestaDto = {
+        mensaje: "Pizza agregada",
+        id: 1,
+        fecha: new Date(),
+    };
+    return res.status(201).json(respuestaDto)
 })
 
 // Iniciar el servidor
