@@ -17,12 +17,15 @@ export async function obtenerPizzaIdAsync(id){
 export async function agregarPizzaAsync(pizza){
     await sleep(1000)
     pizzas.push(pizza)
+    return pizzas.length
 }
 
 //ACTUALIZAR
 export async function actualizarPizzaAsync(id, pizzaActualizada){
     await sleep(1000)
     let pizza = pizzas.find(x => x.id == id)
+    if(pizza == -1)
+        return undefined
     pizza.nombre = pizzaActualizada.nombre
     pizza.descripcion = pizzaActualizada.descripcion
     return "pizza actualizada"
@@ -31,7 +34,8 @@ export async function actualizarPizzaAsync(id, pizzaActualizada){
 //BORRAR
 export async function borrarPizzaAsync(id){
     await sleep(1000)
-    const pizza = pizzas.findIndex(x => x.id == id)
-    pizzas.splice(pizza,1)
+    const index = pizzas.findIndex(x => x.id == id) 
+    if(index !== -1)
+        pizzas.splice(index,1)
     return "pizza borrada"
 }

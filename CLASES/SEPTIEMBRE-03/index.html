@@ -7,13 +7,10 @@
   </head>
   <body>
     <h1>PIZZA PLANETA</h1>
-    <button onclick="obtenerPizza()">OBTENER PIZZAS</button>
-
     <script>
-
     //TODO ESTO SE CONECTA DIRECTAMENTE CON NUESTRO PIZZA SERVICE 2, HACE LA PETICION GET A LA URL Y ESTA SE ENCARGA DE REGREARNOS EL JSON
     //HACE LA BUSQUEDA MEDIANTE EL ID
-      const url = "http://localhost:3000/api/v1/pizzas/1";
+      const url = "http://localhost:3000/api/v1/pizzas";
 
       const requestOptions = {
         method: "GET",
