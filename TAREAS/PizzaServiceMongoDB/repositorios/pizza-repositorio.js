@@ -1,7 +1,12 @@
 import mongoose from 'mongoose';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 // Cadena de conexión obtenida de Mongo Compass
-const MONGO_URI = "mongodb://root:123456@localhost:27017/PizzaMongo?authSource=admin";
+// const MONGO_URI = "mongodb://root:123456@localhost:27017/PizzaMongo?authSource=admin";
+const dbUser = process.env.DB_NAME;
+const dbPassword = process.env.BD_PASSWORD;
+const MONGO_URI = `mongodb+srv://${dbUser}:${dbPassword}@pizzaservice.w8o6n2r.mongodb.net/?appName=PizzaService`;
 
 // 1. Establecer la conexión a MongoDB
 mongoose.connect(MONGO_URI)

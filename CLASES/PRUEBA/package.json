@@ -1,11 +1,10 @@
 {
-  "name": "PizzaServiceMongoDB",
+  "name": "PRUEBA",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
-    "test": "nodemon servicios/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -21,13 +20,7 @@
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
-    "dotenv": "^18.0.3",
     "express": "^5.2.1",
-    "mongoose": "^9.10.1",
-    "nodemon": "^3.1.14"
-  },
-  "devDependencies": {
-    "newman": "^6.2.2",
-    "newman-reporter-htmlextra": "^1.23.1"
+    "mongoose": "^9.10.1"
   }
 }

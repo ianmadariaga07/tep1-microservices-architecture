@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "896c008c-9ea8-44a1-b34f-6aa0b233113e",
+		"name": "PIZZA_SERVICE_MONGOATLAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51150930",
+		"_collection_link": "https://ianmadariaga07-9512927.postman.co/workspace/Ian-Alex-Tranquilino's-Workspac~c005ed71-e64d-40c7-8720-90182423ef9f/collection/51150930-896c008c-9ea8-44a1-b34f-6aa0b233113e?action=share&source=collection_link&creator=51150930"
+	},
+	"item": [
+		{
+			"name": "OBTENER_PIZZAS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\":2, \"nombre\": \"PEPERONI\", \"descripcion\": \"PEPERONI Y QUESO\" }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pizzas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pizzas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OBTENER_PIZZA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pizzas/6ab6e580024e84a6ece2a6ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pizzas",
+						"6ab6e580024e84a6ece2a6ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AGREGAR_PIZZA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"PEPPERONI\",\n  \"descripcion\": \"PEPPERONI Y QUESO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pizzas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pizzas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR_PIZZA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"nombre\": \"EXTRA PEPERONI\", \n    \"descripcion\": \"EXTRA PEPERONI Y DOBLE QUESO\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pizzas/6ab6e580024e84a6ece2a6ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pizzas",
+						"6ab6e580024e84a6ece2a6ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_PIZZA",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pizzas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pizzas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
