@@ -1,0 +1,45 @@
+package fes.aragon.iantranquilino.businessLayer;
+
+import java.util.ArrayList;
+import org.springframework.stereotype.Service;
+import fes.aragon.iantranquilino.dtos.BebidaDto;
+import fes.aragon.iantranquilino.dtos.BebidaDtoIn;
+import fes.aragon.iantranquilino.dtos.IdDto;
+
+@Service 
+public class BebidasBusinessLayer {
+
+    private ArrayList<BebidaDto> bebidas = new ArrayList<>();
+    private int contadorId = 1;
+
+    // LEER
+    public ArrayList<BebidaDto> obtenerTodas() {
+        return bebidas;
+    }
+
+    // CREAR
+    public IdDto agregar(BebidaDtoIn bebidaDtoIn) {
+        BebidaDto nueva = new BebidaDto(contadorId++, bebidaDtoIn.getNombre(), bebidaDtoIn.getPrecio());
+        bebidas.add(nueva);
+        return new IdDto(nueva.getId(), "Bebida registrada"); // Reutilizas tu IdDto
+    }
+
+    // LEER POR ID
+    public BebidaDto obtenerPorId(int id){
+        return bebidas.stream().filter(b -> b.getId() == id).findFirst().orElse(null);
+    }
+
+    // ACTUALIZAR
+    public void actualizar(int id, BebidaDtoIn bebidaDtoIn){
+        BebidaDto bebida = obtenerPorId(id);
+        if(bebida != null){
+            bebida.setNombre(bebidaDtoIn.getNombre());
+            bebida.setPrecio(bebidaDtoIn.getPrecio());
+        }
+    }
+
+    // BORRAR
+    public void borrar(int id){
+        bebidas.removeIf(b -> b.getId() == id);
+    }
+}

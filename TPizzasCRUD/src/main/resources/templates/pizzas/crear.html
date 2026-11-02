@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar pizza nueva</title>
+    <title>Crear Pizza</title>
 </head>
 <body>
-    <h1>Agregar pizza nueva</h1>
-    <p>Formulario para agregar una nueva pizza</p>
-    <form>
-
-    </form>
+<h1>Registrar Nueva Pizza</h1>
+<form action="/pizzas/crear" method="POST">
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" required><br><br>
+    <label>Descripción:</label><br>
+    <input type="text" name="descripcion" required><br><br>
+    <label>Precio:</label><br>
+    <input type="number" step="0.01" name="precio" required><br><br>
+    <button type="submit">Guardar Pizza</button>
+</form>
+<br>
+<a href="/pizzas">Volver a la lista</a>
 </body>
 </html>

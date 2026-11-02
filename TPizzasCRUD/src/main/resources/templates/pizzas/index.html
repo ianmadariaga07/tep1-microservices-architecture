@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catálogo de Pizzas</title>
 </head>
 <body>
-    <h1>Pizzas Coliseo</h1>
-
-    <a href="/pizzas/crear">Agregar nueva pizza</a>
-
-    <table>
-        <tbody>
-            <tr th:each="pizza : ${pizzas}">
-                <td th:text="${pizza.nombre}"></td>
-                <td th:text="${pizza.descripcion}"></td>
-                <td>
-                    <a th:href="@{/pizzas/crear}">Agregar nueva pizza</a>
-                    <a th:href="@{/editar/${pizza.id}}">Editar</a>
-                    <a th:href="@{/eliminar/${pizza.id}}">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="/bebidas">Ir a Bebidas</a>
-    <a href="/tamanos">Elegir tamaño</a>
+<h1>Menú de Pizzas</h1>
+<p>
+    <a href="/pizzas/crear"><button>Agregar Nueva Pizza</button></a> |
+    <a href="/tamanos">Ir a Tamaños</a> |
+    <a href="/bebidas">Ir a Bebidas</a> |
     <a href="/clientes">Ir a Clientes</a>
-
-
+</p>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pizza : ${pizzas}">
+        <td th:text="${pizza.id}"></td>
+        <td th:text="${pizza.nombre}"></td>
+        <td th:text="${pizza.descripcion}"></td>
+        <td th:text="${pizza.precio}"></td>
+        <td>
+            <a th:href="@{/pizzas/editar/{id}(id=${pizza.id})}">Editar</a>
+            <form th:action="@{/pizzas/borrar/{id}(id=${pizza.id})}" method="POST" style="display:inline;">
+                <button type="submit">Borrar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
